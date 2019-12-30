@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MixErpDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bBirim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BirimAdi" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="bKategori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KategoriAdi" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="blgCariTipis">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CariTipi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="blgDepartman">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmanAdi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="bMensei">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenseiAdi" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="ilceler">
+    <Key>
+      <PropertyRef Name="ilce_no" />
+    </Key>
+    <Property Name="ilce_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="isim" Type="varchar" MaxLength="50" />
+    <Property Name="il_no" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="iller">
+    <Key>
+      <PropertyRef Name="il_no" />
+    </Key>
+    <Property Name="il_no" Type="int" Nullable="false" />
+    <Property Name="isim" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TblCaris">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CariNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CariAdi" Type="nvarchar" MaxLength="250" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="VergiD" Type="nvarchar" MaxLength="50" />
+    <Property Name="VergiNoTc" Type="nvarchar" MaxLength="11" />
+    <Property Name="CariTipId" Type="int" />
+    <Property Name="SehirId" Type="int" />
+    <Property Name="IlceId" Type="int" />
+  </EntityType>
+  <EntityType Name="tblPersonel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonelNo" Type="nvarchar" MaxLength="7" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="20" />
+    <Property Name="DepartmanId" Type="int" />
+    <Property Name="İsBasTarih" Type="date" />
+    <Property Name="İsSonTarih" Type="date" />
+    <Property Name="DogumTarih" Type="date" />
+    <Property Name="TcNo" Type="nvarchar" MaxLength="11" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblUrunler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunKodu" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrunAciklama" Type="nvarchar(max)" />
+    <Property Name="MenseiId" Type="int" />
+    <Property Name="KategoriId" Type="int" />
+    <Property Name="BirimId" Type="int" />
+    <Property Name="CariId" Type="int" />
+  </EntityType>
+  <Association Name="fk_il_no">
+    <End Role="iller" Type="Self.iller" Multiplicity="1" />
+    <End Role="ilceler" Type="Self.ilceler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="iller">
+        <PropertyRef Name="il_no" />
+      </Principal>
+      <Dependent Role="ilceler">
+        <PropertyRef Name="il_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCaris_blgCariTipis">
+    <End Role="blgCariTipis" Type="Self.blgCariTipis" Multiplicity="0..1" />
+    <End Role="TblCaris" Type="Self.TblCaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blgCariTipis">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TblCaris">
+        <PropertyRef Name="CariTipId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCaris_ilceler">
+    <End Role="ilceler" Type="Self.ilceler" Multiplicity="0..1" />
+    <End Role="TblCaris" Type="Self.TblCaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ilceler">
+        <PropertyRef Name="ilce_no" />
+      </Principal>
+      <Dependent Role="TblCaris">
+        <PropertyRef Name="IlceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TblCaris_iller">
+    <End Role="iller" Type="Self.iller" Multiplicity="0..1" />
+    <End Role="TblCaris" Type="Self.TblCaris" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="iller">
+        <PropertyRef Name="il_no" />
+      </Principal>
+      <Dependent Role="TblCaris">
+        <PropertyRef Name="SehirId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPersonel_blgDepartman">
+    <End Role="blgDepartman" Type="Self.blgDepartman" Multiplicity="0..1" />
+    <End Role="tblPersonel" Type="Self.tblPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="blgDepartman">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblPersonel">
+        <PropertyRef Name="DepartmanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_bBirim">
+    <End Role="bBirim" Type="Self.bBirim" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bBirim">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="BirimId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_bKategori">
+    <End Role="bKategori" Type="Self.bKategori" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bKategori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_bMensei">
+    <End Role="bMensei" Type="Self.bMensei" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bMensei">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="MenseiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUrunler_TblCaris">
+    <End Role="TblCaris" Type="Self.TblCaris" Multiplicity="0..1" />
+    <End Role="tblUrunler" Type="Self.tblUrunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCaris">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblUrunler">
+        <PropertyRef Name="CariId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MixErpDbModelStoreContainer">
+    <EntitySet Name="bBirim" EntityType="Self.bBirim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bKategori" EntityType="Self.bKategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blgCariTipis" EntityType="Self.blgCariTipis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="blgDepartman" EntityType="Self.blgDepartman" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bMensei" EntityType="Self.bMensei" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ilceler" EntityType="Self.ilceler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="iller" EntityType="Self.iller" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblCaris" EntityType="Self.TblCaris" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPersonel" EntityType="Self.tblPersonel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUrunler" EntityType="Self.tblUrunler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_il_no" Association="Self.fk_il_no">
+      <End Role="iller" EntitySet="iller" />
+      <End Role="ilceler" EntitySet="ilceler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCaris_blgCariTipis" Association="Self.FK_TblCaris_blgCariTipis">
+      <End Role="blgCariTipis" EntitySet="blgCariTipis" />
+      <End Role="TblCaris" EntitySet="TblCaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCaris_ilceler" Association="Self.FK_TblCaris_ilceler">
+      <End Role="ilceler" EntitySet="ilceler" />
+      <End Role="TblCaris" EntitySet="TblCaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TblCaris_iller" Association="Self.FK_TblCaris_iller">
+      <End Role="iller" EntitySet="iller" />
+      <End Role="TblCaris" EntitySet="TblCaris" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPersonel_blgDepartman" Association="Self.FK_tblPersonel_blgDepartman">
+      <End Role="blgDepartman" EntitySet="blgDepartman" />
+      <End Role="tblPersonel" EntitySet="tblPersonel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_bBirim" Association="Self.FK_tblUrunler_bBirim">
+      <End Role="bBirim" EntitySet="bBirim" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_bKategori" Association="Self.FK_tblUrunler_bKategori">
+      <End Role="bKategori" EntitySet="bKategori" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_bMensei" Association="Self.FK_tblUrunler_bMensei">
+      <End Role="bMensei" EntitySet="bMensei" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUrunler_TblCaris" Association="Self.FK_tblUrunler_TblCaris">
+      <End Role="TblCaris" EntitySet="TblCaris" />
+      <End Role="tblUrunler" EntitySet="tblUrunler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

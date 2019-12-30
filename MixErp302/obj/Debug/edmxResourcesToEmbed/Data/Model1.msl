@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MixErpDbModelStoreContainer" CdmEntityContainer="MixErpDbEntities">
+    <EntitySetMapping Name="blgDepartmen">
+      <EntityTypeMapping TypeName="MixErpDbModel.blgDepartman">
+        <MappingFragment StoreEntitySet="blgDepartman">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmanAdi" ColumnName="DepartmanAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPersonels">
+      <EntityTypeMapping TypeName="MixErpDbModel.tblPersonel">
+        <MappingFragment StoreEntitySet="tblPersonel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PersonelNo" ColumnName="PersonelNo" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="DepartmanId" ColumnName="DepartmanId" />
+          <ScalarProperty Name="İsBasTarih" ColumnName="İsBasTarih" />
+          <ScalarProperty Name="İsSonTarih" ColumnName="İsSonTarih" />
+          <ScalarProperty Name="DogumTarih" ColumnName="DogumTarih" />
+          <ScalarProperty Name="TcNo" ColumnName="TcNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blgCariTipis">
+      <EntityTypeMapping TypeName="MixErpDbModel.blgCariTipi">
+        <MappingFragment StoreEntitySet="blgCariTipis">
+          <ScalarProperty Name="CariTipi" ColumnName="CariTipi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilcelers">
+      <EntityTypeMapping TypeName="MixErpDbModel.ilceler">
+        <MappingFragment StoreEntitySet="ilceler">
+          <ScalarProperty Name="il_no" ColumnName="il_no" />
+          <ScalarProperty Name="isim" ColumnName="isim" />
+          <ScalarProperty Name="ilce_no" ColumnName="ilce_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="illers">
+      <EntityTypeMapping TypeName="MixErpDbModel.iller">
+        <MappingFragment StoreEntitySet="iller">
+          <ScalarProperty Name="isim" ColumnName="isim" />
+          <ScalarProperty Name="il_no" ColumnName="il_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCaris">
+      <EntityTypeMapping TypeName="MixErpDbModel.TblCari">
+        <MappingFragment StoreEntitySet="TblCaris">
+          <ScalarProperty Name="IlceId" ColumnName="IlceId" />
+          <ScalarProperty Name="SehirId" ColumnName="SehirId" />
+          <ScalarProperty Name="CariTipId" ColumnName="CariTipId" />
+          <ScalarProperty Name="VergiNoTc" ColumnName="VergiNoTc" />
+          <ScalarProperty Name="VergiD" ColumnName="VergiD" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
+          <ScalarProperty Name="CariNo" ColumnName="CariNo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bBirims">
+      <EntityTypeMapping TypeName="MixErpDbModel.bBirim">
+        <MappingFragment StoreEntitySet="bBirim">
+          <ScalarProperty Name="BirimAdi" ColumnName="BirimAdi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bKategoris">
+      <EntityTypeMapping TypeName="MixErpDbModel.bKategori">
+        <MappingFragment StoreEntitySet="bKategori">
+          <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bMenseis">
+      <EntityTypeMapping TypeName="MixErpDbModel.bMensei">
+        <MappingFragment StoreEntitySet="bMensei">
+          <ScalarProperty Name="MenseiAdi" ColumnName="MenseiAdi" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUrunlers">
+      <EntityTypeMapping TypeName="MixErpDbModel.tblUrunler">
+        <MappingFragment StoreEntitySet="tblUrunler">
+          <ScalarProperty Name="CariId" ColumnName="CariId" />
+          <ScalarProperty Name="BirimId" ColumnName="BirimId" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="MenseiId" ColumnName="MenseiId" />
+          <ScalarProperty Name="UrunAciklama" ColumnName="UrunAciklama" />
+          <ScalarProperty Name="UrunKodu" ColumnName="UrunKodu" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

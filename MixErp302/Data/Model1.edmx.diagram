@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aab50294a77a47fc87b74e5022eeba5f" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="MixErpDbModel.blgDepartman" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MixErpDbModel.tblPersonel" Width="1.5" PointX="3.25" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="MixErpDbModel.FK_tblPersonel_blgDepartman" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MixErpDbModel.blgCariTipi" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="MixErpDbModel.ilceler" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="MixErpDbModel.iller" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="MixErpDbModel.TblCari" Width="1.5" PointX="5.25" PointY="6" />
+        <AssociationConnector Association="MixErpDbModel.FK_TblCaris_blgCariTipis" />
+        <AssociationConnector Association="MixErpDbModel.fk_il_no" />
+        <AssociationConnector Association="MixErpDbModel.FK_TblCaris_ilceler" />
+        <AssociationConnector Association="MixErpDbModel.FK_TblCaris_iller" />
+        <EntityTypeShape EntityType="MixErpDbModel.bBirim" Width="1.5" PointX="5.25" PointY="14" />
+        <EntityTypeShape EntityType="MixErpDbModel.bKategori" Width="1.5" PointX="5.25" PointY="11.75" />
+        <EntityTypeShape EntityType="MixErpDbModel.bMensei" Width="1.5" PointX="5.25" PointY="16.375" />
+        <EntityTypeShape EntityType="MixErpDbModel.tblUrunler" Width="1.5" PointX="7.5" PointY="6.25" />
+        <AssociationConnector Association="MixErpDbModel.FK_tblUrunler_bBirim" />
+        <AssociationConnector Association="MixErpDbModel.FK_tblUrunler_bKategori" />
+        <AssociationConnector Association="MixErpDbModel.FK_tblUrunler_bMensei" />
+        <AssociationConnector Association="MixErpDbModel.FK_tblUrunler_TblCaris" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
